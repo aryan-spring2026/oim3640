@@ -4,3 +4,5 @@ This is my course repository for OIM 3640.
 - Name: Aryan Singh
 - Concentration: Business Analytics
 - Interests: Reading, Running, and Video Games
+# Mini Projects
+- [MP1: Cost Estimator for Flights] (https://github.com/aryan-spring2026/oim3640/tree/main/mini%20project%201-%20cost%20estimator%20for%20flights) - helps users understand the cost for international round trips and helps compare 3 different travel destinations. Factors used to derive the calculations include duration of trip (in days), month of travel, and destination of choice.
