@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MakeMyTrip</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <header>
+        <h1>MakeMyTrip</h1>
+        <p>Smarter Planning Leads to Better Experiences!</p>
+    </header>
+
+    <main>
+        <section class="card">
+            <h2>Compare International Trip Costs</h2>
+
+            <p>
+                Enter your travel details and choose destinations to compare. 
+                MakeMyTrip estimates your total cost and recommends the best value option.
+            </p>
+
+            <form action="/compare" method="POST">
+
+                <label>Departure Airport:</label><br>
+                <select name="airport">
+                    <option>BOS</option>
+                    <option>JFK</option>
+                    <option>EWR</option>
+                    <option>LAX</option>
+                    <option>MIA</option>
+                    <option>ATL</option>
+                </select>
+
+                <label for="travelers">Number of Travelers:</label>
+                <input id="travelers" type="number" name="travelers" value="1" min="1">
+
+                <label for="days">Trip Duration (days):</label>
+                <input id="days" type="number" name="days" value="10" min="2">
+
+                <label for="month">Month:</label>
+                <select id="month" name="month">
+                        <option>January</option>
+                        <option>February</option>
+                        <option>March</option>
+                        <option>April</option>
+                        <option>May</option>
+                        <option>June</option>
+                        <option>July</option>
+                        <option>August</option>
+                        <option>September</option>
+                        <option>October</option>
+                        <option>November</option>
+                        <option>December</option>
+                </select>
+        
+                <h3>Choose Destinations to Compare</h3>
+
+                <label class="checkbox">
+                    <input type="checkbox" name="destinations" value="London, United Kingdom">
+                    London, United Kingdom
+                </label>
+
+                <label class="checkbox">
+                    <input type="checkbox" name="destinations" value="Venice, Italy">
+                    Venice, Italy
+                </label>
+
+                <label class="checkbox">
+                    <input type="checkbox" name="destinations" value="Kyoto, Japan">
+                    Kyoto, Japan
+                </label>
+
+                <label class="checkbox">
+                    <input type="checkbox" name="destinations" value="Seoul, South Korea">
+                    Seoul, South Korea
+                </label>
+
+                <label class="checkbox">
+                    <input type="checkbox" name="destinations" value="Toronto, Canada">
+                    Toronto, Canada
+                </label>
+
+                <button type="submit">Estimate Trips</button>
+
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>OIM3640 Final Project</p>
+    </footer>
+
+</body>
+</html>

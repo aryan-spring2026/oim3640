@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MakeMyTrip Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <header>
+        <h1>MakeMyTrip</h1>
+        <p>Your Trip Comparison Results</p>
+    </header>
+
+    <main>
+        <section class="card">
+            <h2>Trip Comparison Results</h2>
+
+            <div class="recommendation">
+                <h3>Best Value Recommendation</h3>
+                <p>
+                    The most cost-effective option is <strong>{{ best_trip.destination }}</strong> with a total cost of <strong>{{ best_trip.total_cost }}</strong>.
+                </p>
+            </div>
+
+            <div class="trip-grid">
+                {% for trip in trips %}
+
+                    <div class="trip-card">
+                        <h2>{{ trip.destination }}</h2>
+
+                        <p>
+                            <strong>Month:</strong> {{ trip.month }}<br>
+                            <strong>Travelers:</strong> {{ trip.travelers }}<br>
+                            <strong>Duration:</strong> {{ trip.days }} days<br>
+                        </p>
+
+                        <ul>
+                            <li>Flights: {{ trip.flight_cost }}</li>
+                            <li>Living: {{ trip.living_cost }}</li>
+                            <li>Food: {{ trip.food_cost }}</li>
+                            <li>Transportation: {{ trip.transportation_cost }}</li>
+                        </ul>
+
+                        <p class="cost-total">
+                            Total: {{ trip.total_cost }}
+                        </p>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <a class="button-link" href="/"> Plan Another Trip</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>OIM 3640 Final Project</p>
+    </footer>
+
+</body>
+</html>
