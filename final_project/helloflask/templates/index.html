@@ -9,88 +9,95 @@
 
     <header>
         <h1>MakeMyTrip</h1>
-        <p>Smarter Planning Leads to Better Experiences!</p>
+        <p>Better Experiences Come From Smart Planning</p>
     </header>
 
     <main>
         <section class="card">
-            <h2>Compare International Trip Costs</h2>
+            <h2>Compare Your International Trip Costs</h2>
 
             <p>
-                Enter your travel details and choose destinations to compare. 
-                MakeMyTrip estimates your total cost and recommends the best value option.
+                Input your airport code, travel details, and a maximum to three destinations.
+                MakeMyTrip helps you estimate the total cost and helps recommend a best-value option.
             </p>
 
             <form action="/compare" method="POST">
 
-                <label>Departure Airport:</label><br>
-                <select name="airport">
-                    <option>BOS</option>
-                    <option>JFK</option>
-                    <option>EWR</option>
-                    <option>LAX</option>
-                    <option>MIA</option>
-                    <option>ATL</option>
-                </select>
+                <label for="airport">Departure Airport (US airport code):</label>
+                <input
+                    type="text"
+                    id="airport"
+                    name="airport"
+                    placeholder="Example: JFK"
+                    required
+                >
 
                 <label for="travelers">Number of Travelers:</label>
-                <input id="travelers" type="number" name="travelers" value="1" min="1">
+                <input
+                    id="travelers"
+                    type="number"
+                    name="travelers"
+                    value="1"
+                    min="1"
+                >
 
-                <label for="days">Trip Duration (days):</label>
-                <input id="days" type="number" name="days" value="10" min="2">
+                <label for="days">Trip Duration in Days:</label>
+                <input
+                    id="days"
+                    type="number"
+                    name="days"
+                    value="10"
+                    min="2"
+                >
 
                 <label for="month">Month:</label>
                 <select id="month" name="month">
-                        <option>January</option>
-                        <option>February</option>
-                        <option>March</option>
-                        <option>April</option>
-                        <option>May</option>
-                        <option>June</option>
-                        <option>July</option>
-                        <option>August</option>
-                        <option>September</option>
-                        <option>October</option>
-                        <option>November</option>
-                        <option>December</option>
+                    <option>January</option>
+                    <option>February</option>
+                    <option>March</option>
+                    <option selected>April</option>
+                    <option>May</option>
+                    <option>June</option>
+                    <option>July</option>
+                    <option>August</option>
+                    <option>September</option>
+                    <option>October</option>
+                    <option>November</option>
+                    <option>December</option>
                 </select>
-        
-                <h3>Choose Destinations to Compare</h3>
 
-                <label class="checkbox">
-                    <input type="checkbox" name="destinations" value="London, United Kingdom">
-                    London, United Kingdom
-                </label>
+                <h3>Enter a maximum of 3 destinations to compare</h3>
 
-                <label class="checkbox">
-                    <input type="checkbox" name="destinations" value="Venice, Italy">
-                    Venice, Italy
-                </label>
+                <label for="destination1">Destination 1:</label>
+                <input
+                    type="text"
+                    id="destination1"
+                    name="destinations"
+                    placeholder="Example: Prague, Czech Republic"
+                    required
+                >
 
-                <label class="checkbox">
-                    <input type="checkbox" name="destinations" value="Kyoto, Japan">
-                    Kyoto, Japan
-                </label>
+                <label for="destination2">Destination 2:</label>
+                <input
+                    type="text"
+                    id="destination2"
+                    name="destinations"
+                    placeholder="Example: Cape Town, South Africa"
+                >
 
-                <label class="checkbox">
-                    <input type="checkbox" name="destinations" value="Seoul, South Korea">
-                    Seoul, South Korea
-                </label>
-
-                <label class="checkbox">
-                    <input type="checkbox" name="destinations" value="Toronto, Canada">
-                    Toronto, Canada
-                </label>
+                <label for="destination3">Destination 3:</label>
+                <input
+                    type="text"
+                    id="destination3"
+                    name="destinations"
+                    placeholder="Example: Kyoto, Japan"
+                >
 
                 <button type="submit">Estimate Trips</button>
 
             </form>
         </section>
     </main>
-
-    <footer>
-        <p>OIM3640 Final Project</p>
-    </footer>
 
 </body>
 </html>

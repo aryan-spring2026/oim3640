@@ -30,32 +30,53 @@
                         <h2>{{ trip.destination }}</h2>
 
                         <p>
+                            <strong>Departure Airport:</strong> {{ trip.airport }}<br>
                             <strong>Month:</strong> {{ trip.month }}<br>
                             <strong>Travelers:</strong> {{ trip.travelers }}<br>
-                            <strong>Duration:</strong> {{ trip.days }} days<br>
+                            <strong>Duration:</strong> {{ trip.days }}<br>
+
                         </p>
 
                         <ul>
                             <li>Flights: {{ trip.flight_cost }}</li>
-                            <li>Living: {{ trip.living_cost }}</li>
+                            <li>Accomendation: {{ trip.hotel_cost }}</li>
                             <li>Food: {{ trip.food_cost }}</li>
-                            <li>Transportation: {{ trip.transportation_cost }}</li>
+                            <li>Transportation: {{ trip.transport_cost }}</li>
                         </ul>
 
                         <p class="cost-total">
                             Total: {{ trip.total_cost }}
                         </p>
+                        
+                        <p>
+                            Cost per Person: {{ trip.cost_per_person }}<br>
+                            Cost per Day: {{ trip.cost_per_day }}
+                        </p>
+
+                        <div class="weather-box">
+                            <h3>Weather Preview</h3>
+
+                            {% if trip.weather.available %}
+                                <p>
+                                    <strong>{{ trip.weather.city }}, {{ trip.weather.country }}</strong><br>
+                                    Current: {{ trip.weather.current_temp }}°F<br>
+                                    Feels Like: {{ trip.weather.feels_like }}°F<br>
+                                    Humidity: {{ trip.weather.humidity }}%<br>
+                                    Conditions: {{ trip.weather.description }}
+                                </p>
+                            {% else %}
+                                <p>{{ trip.weather.message }}</p>
+                            {% endif %}
+                        </div>
                     </div>
+
                 {% endfor %}
             </div>
 
-            <a class="button-link" href="/"> Plan Another Trip</a>
+            <a class="button-link" href="/">Plan Another Trip</a>
+
         </section>
     </main>
-
-    <footer>
-        <p>OIM 3640 Final Project</p>
-    </footer>
 
 </body>
 </html>

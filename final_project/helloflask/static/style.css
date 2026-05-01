@@ -116,3 +116,16 @@ footer {
     color: #6b7280;
     padding: 25px;
 }
+
+.weather-box {
+    background-color: #eef6ff;
+    border-left: 5px solid #2563eb;
+    padding: 14px;
+    border-radius: 10px;
+    margin-top: 15px;
+}
+
+.weather-box h3 {
+    margin-top: 0;
+    color: #12355b;
+}
