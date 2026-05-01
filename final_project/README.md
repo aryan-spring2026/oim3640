@@ -5,4 +5,4 @@ My project was created to help students and young professionals plan for interna
 For my project to run, I would recommend opening the "app.py" file. This application has all the code for how to run the platform. Once you run the file, it will take you to the "home screen" which welcomes you to the platform and asks you to input your departing location, number of travellers, days staying, and a maximum of three locations internationally that one would like to travel. Afterwards, it will give you a rundown of costs for each location and recommend the most cost-effective location.
 
 ## Live Demo
-TBD
+https://makemytrip-pk4i.onrender.com/
