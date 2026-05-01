@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Trip Results</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
+    <link
+        href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css"
+        rel="stylesheet"
+    >
+</head>
+
+<body>
+    <div 
+        class="container wide"
+        id="map-data"
+        data-mapbox-token="{{ mapbox_token }}"
+        data-user-lon="{{ result['user_lon'] }}"
+        data-user-lat="{{ result['user_lat'] }}"
+        data-venue-lon="{{ result['venue_lon'] }}"
+        data-venue-lat="{{ result['venue_lat'] }}"
+        data-stop-lon="{{ result['stop_lon'] }}"
+        data-stop-lat="{{ result['stop_lat'] }}"
+        data-venue-name="{{ result['venue_name'] }}"
+        data-stop-name="{{ result['stop_name'] }}"
+    >
+        <h1>Your Sports Transit Recommendation</h1>
+
+         <p class="subtitle">
+            Based on your starting location, here is the closest sports venue
+            and the nearest MBTA stop.
+        </p>
+
+        <div class="result-grid">
+            <div class="result-card highlight-card">
+                <h2>{{ result["venue_name"] }}</h2>
+
+                <p><strong>Starting location:</strong> {{ result["search_location"] }}</p>
+                <p><strong>Distance to venue:</strong> {{ result["venue_distance"] }} miles</p>
+                <p><strong>Nearest MBTA stop:</strong> {{ result["stop_name"] }}</p>
+                <p><strong>Wheelchair accessible:</strong> {{ result["accessible"] }}</p>
+            </div>
+
+            <div class="result-card">
+                <h2>Top 3 Nearby Sports Venues</h2>
+
+                <ol>
+                    {% for venue in result["top_venues"] %}
+                        <li>
+                            <strong>{{ venue["name"] }}</strong>
+                            <br>
+                            {{ venue["distance"] }} miles away
+                        </li>
+                    {% endfor %}
+                </ol>
+            </div>
+        </div>
+
+        <div id="map"></div>
+
+        <a class="back-link" href="/">Search again</a>
+    </div>
+
+    <script>
+        const mapData = document.getElementById("map-data");
+
+        mapboxgl.accessToken = mapData.dataset.mapboxToken;
+
+        const userLocation = [
+            Number(mapData.dataset.userLon),
+            Number(mapData.dataset.userLat)
+        ];
+
+        const venueLocation = [
+            Number(mapData.dataset.venueLon),
+            Number(mapData.dataset.venueLat)
+        ];
+
+        const stopLocation = [
+            Number(mapData.dataset.stopLon),
+            Number(mapData.dataset.stopLat)
+        ];
+
+        const venueName = mapData.dataset.venueName;
+        const stopName = mapData.dataset.stopName;
+
+        const map = new mapboxgl.Map({
+            container: "map",
+            style: "mapbox://styles/mapbox/streets-v12",
+            center: venueLocation,
+            zoom: 13
+        });
+
+        new mapboxgl.Marker()
+            .setLngLat(userLocation)
+            .setPopup(new mapboxgl.Popup().setText("Your starting location"))
+            .addTo(map);
+
+        new mapboxgl.Marker()
+            .setLngLat(venueLocation)
+            .setPopup(new mapboxgl.Popup().setText(venueName))
+            .addTo(map);
+
+        new mapboxgl.Marker()
+            .setLngLat(stopLocation)
+            .setPopup(new mapboxgl.Popup().setText("Nearest MBTA stop: " + stopName))
+            .addTo(map);
+    </script>
+</body>
+</html>
