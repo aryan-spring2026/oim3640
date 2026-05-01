@@ -3,3 +3,6 @@ My project was created to help fans of Boston sports locate the nearest sports a
 
 ## How to run my project?
 For my project to run, I would recommend opening the "app.py" file. This application has all the code for how to run the platform. Once you run the file, it will take you to the "home screen" which welcomes you to the platform and asks you to input from your location. Once you input your location, there are outputs that are given to the user. To begin with, the user is given the closest arena, Top 3 venues, a map of location, and other factors such as wheelchair accessibility and MBTA times. You can click on "Search Again" to continue searching from different locations if required.
+
+## Live Demo
+https://oim3640-9zlz.onrender.com/
